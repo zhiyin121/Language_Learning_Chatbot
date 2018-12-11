@@ -1,0 +1,179 @@
+January	يناير	3001
+February فبراير	3002
+March	مارس	3003
+April	أبريل	3004
+May	ماي	3005
+June	يونيو	3006
+July	يوليه	3007
+August	أغسطس	3008
+September	سبتمبر	3009
+October	أوكتوبر	3010
+November	نوفمبر	3011
+December	ديسمبر	3012
+Monday	يوم الاثنين	3013
+Tuesday	يوم الثلاثاء	3014
+Wednesday	يوم الأربعاء	3015
+Thursday	يوم الخميس	3016
+Friday	الجمعة	3017
+Saturday	السبت	3018
+Sunday	يوم الأحد	3019
+red	احمر	3020
+green أخضر	3021
+Blue أزرق	3022
+Yellow	أصفر	3023
+orange برتقال	3024
+Black	أسود	3025
+White	أبيض	3026
+pink	زهرية	3027
+Brown	بني	3028
+purple	بنفسجية	3029
+mother	أم	3030
+Father	أبا	3031
+Sister	أخت	3032
+brother	أخ	3033
+Daughter	بنت	3034
+son	ابن	3035
+Wife	زوجة	3036
+husband	زوج	3037
+1	واحد	3038
+2	اثنان	3039
+3	ثلاث	3039
+4	أربع	3040
+5	خمس	3041
+6	ستة	3042
+7	سبعة	3043
+8	ثمانية	3044
+9	تسعة	3045
+10	عشرة	3046
+11	أحد عشر	3047
+12	اثنا عشر	3048
+13	ثلاثة عشر	3049
+14	أربعة عشر	3050
+15	خمسة عشر	3051
+16	ستة عشر	3052
+17	سبعة عشر	3053
+18	ثمانية عشر	3054
+19	تسعة عشر	3055
+20	عشرين	3056
+30	ثلاثين	3057
+40	أربعين	3058
+50	خمسين	3059
+60	ستين	3060
+70	سبعين	3061
+80	ثمانين	3062
+90	تسعين	3063
+100	مئة	3064
+110	مئة و عشرة	3065
+120 مئة وعشرين	3066
+130 مئة  ثلاثين 	3067
+200	مئتان	3068
+300	ثلاثة مئة	3069
+1000	ألف	3070
+sunny	مشمس	3071
+cloudy	غائم	3072
+rainy	ممطر	3073
+Windy	عاصف	3074
+snowy	ثلجي	3075
+left	يسار	3077
+right	يمين	3078
+straight	مباشرة	3079
+back	خلف	3080
+hello	مرحبا	3081
+goodbye	مع السلامة	3082
+welcome	أهلا و سهلا	3083
+good morning	صباح الخير	3084
+good evening	مساء الخير	3085
+good night	ليلة سعيدة	3086
+thank you	شكرا	3087
+you’re welcome	ترحيبكم	3088
+nice to meet you	سعدت بلقائك	3089
+kitchen	مطبخ	3090
+living room	الصالون	3091
+bedroom	غرفة النوم	3092
+bathroom	حمام	3093
+Hallway	المدخل	3094
+backyard	الخلفية	3095
+balcony	بلكونة	3096
+car	سيارة	3097
+bus	باص	3098
+train	قطار	3099
+bike	دراجة	3100
+Airplane	طيارة	3101
+motorcycle	دراجة نارية	3102
+scooter	سكوتر	3103
+pants	بنطال	3104
+shoes	أحذي	3105
+glasses,	نظارات	3106
+hat	طاقية	3107
+sweater	سترة	3108
+shirt	قميص	3109
+skirt	تنورة	3110
+Dress	فستان	3111
+jacket	جاكيت	3112
+Hospital	مستشفى	3113
+police station	مركز شرطة	3114
+main station	المحطة الرئيسية	3115
+airport	مطار	3116
+Firehouse	محطة الإطفاء	3117
+school	مدرسة	3118
+city hall	بلدية	3119
+doctor	طبيب	3120
+teacher	معلم	3121
+engineer	مهندس	3122
+cook/chef	طباخ	3123
+lawyer	محام	3124
+nurse	ممرضة	3125
+student	طالب	3126
+door	باب	3127
+window	شباك	3128
+wall	حائط	3129
+Ceiling	سقف	3130
+Floor	الأرض	3131
+roof	سطح	3132
+pencil	قلم رصاص	3133
+pen	قلم	3134
+Notebook	دفتر	3135
+Eraser	ممحاة	3136
+ruler	مسطرة	3137
+Bread	خبز	3138
+milk	حليب	3139
+apple	تفاح	3140
+Banana	موز	3141
+water	ماء	3142
+tea	شاي	3143
+coffee	قهوة	3144
+cheese	جبن	3145
+sausage(not for arabic),	n/a	3146
+cookie	كعكة	3147
+rice	أرز	3148
+noodles	معكرونة	3149
+egg	بيض	3150
+potato	بطاطا	3151
+cat	قطة	3152
+dog	كلب	3153
+Mouse	فأر	3154
+monkey	قرد	3155
+bird	عصفورا	3156
+Head	رأس	3157
+Arm	ذراع	3158
+hand,يد	3159
+leg	رجل	 3160
+Foot	قدم	3161
+eyes	عيون	3162
+Nose	أنف	3163
+mouth	فم	3164
+Hair	شعر	3165
+ear	أذن	3166
+Table	طاولة	3167
+chair	كرسي	3168
+Bed	سرير	3169
+Bookshelf,	مكتبة	3170
+Refrigerator,	ثلاجة	3171
+TV,	تلفزيون	3172
+Wardrobe,	خزانة	3173
+sofa	كنبة	3174
+fuck you,	تبا لك	3175
+shit	خراء	3176
+dumbass	غبي	3177
+asshole	أحمق	3178
+bitch	كلبة	3179

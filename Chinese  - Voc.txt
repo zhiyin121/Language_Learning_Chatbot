@@ -1,4 +1,4 @@
-﻿yīyuè	一月
+yīyuè	一月
 èryuè	二月
 sānyuè	三月
 sìyuè	四月
@@ -175,17 +175,6 @@ shíjiǔ	十九
 sānshí	三十
 sìshí	四十
 wǔshí	五十
-liùshí	六十
-qīshí	七十
-bāshí	八十
-jiǔshí	九十
-yìbǎi	一百
-yībǎiyī	一百一
-yìbǎièr	一百二
-yìbǎisān	一百三
-èrbǎi	二百
-sānbǎi	三百
-yìqiān	一千
 liùshí	六十
 qīshí	七十
 bāshí	八十

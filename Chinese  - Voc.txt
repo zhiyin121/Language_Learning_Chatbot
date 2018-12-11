@@ -56,6 +56,7 @@ zǎoān	早安
 wǎnshànghǎo	晚上好
 wǎnān	晚安
 chúfáng	廚房
+kètīng	客廳
 wòshì	臥室
 yùshì	浴室
 zǒuláng	走廊
@@ -129,7 +130,7 @@ jiǎo	腳
 yǎnjīng	眼睛
 bízi	鼻子
 zuǐbā	嘴巴
-ěrduō	耳多
+ěrduō	耳朵
 tóufà	頭髮
 zhuōzi	桌子
 yǐzi	椅子
@@ -139,6 +140,7 @@ bīngxiāng	冰箱
 diànshì	電視
 yīguì	衣櫃
 shāfā	沙發
+gàn	幹
 māde	媽的
 jiànrén	賤人
 húndàn	混蛋

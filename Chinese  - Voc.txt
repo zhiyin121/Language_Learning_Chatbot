@@ -29,10 +29,8 @@ fěnhóngsè	粉紅色
 zōngsè	棕色
 māma	媽媽
 bàba	爸爸
-jiějie	姐姐
-mèimei	妹妹
-gēge	哥哥
-dìdi	弟弟
+jiěmèi	姐妹
+xiōngdì	兄弟
 lǎopó	老婆
 lǎogōng	老公
 érzi	兒子

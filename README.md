@@ -2,6 +2,8 @@
 
 The Language Learnning Chatbot is an application which allows you to learn basic vocabulary in Arabic, Chinese and German.
 
+## Before Starting
+Before starting first download the database labeled 'back-up db'
 
 ## Getting started
 

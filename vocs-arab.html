@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    {% load static %}
+    <link rel="stylesheet" href={% static 'chatbot/index.css' %}>
+</head>
+<body>
+  <h1>Arab Words</h1>
+    
+  	<script>
+  		function toggle_div_fun(id) {
+  			var divelement = document.getElementById(id);
+
+  			if(divelement.style.display == 'none')
+  			   divelement.style.display = 'block' ;
+  			else
+  			   divelement.style.display = 'none' ;
+  		    {% if arabvoclist %}
+	        	{% for arab in arabvoclist %}
+	
+					<li>
+	
+					{{arab.arabword}}
+					</li>
+    			{% endfor %}
+			{% else %}
+
+    			<p>No vocs are available.</p>
+			{% endif %}
+  		}
+  	</script>
+ 
+  <div id="sectiontohide">arab</div>
+  <button onclick="toggle_div_fun('sectiontohide');">English Word</button>
+  <button onclick="Next()">Next</button>
+  
+<footer>&#169 cool group 2019</footer>
+</body>
+</html>

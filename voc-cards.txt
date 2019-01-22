@@ -1,0 +1,95 @@
+-----views.py-----
+def vocsch(request):
+	import random
+	import json
+	lst = []
+	lst2 = []
+	for i in range(187):
+		id = random.randint(4001,4187)
+		while id in lst:
+			id = random.randint(4001, 4187)
+		lst.append(id)
+	for id in lst:
+		chcards = Chvoc.objects.get(pk=id)
+		lst2.append(chcards)
+	dict=[]
+	for obj in lst2:
+		imgid = str(obj.engid.engid)
+		ch = str(obj.chword)
+		eng = str(obj.engid.engword)
+		dict.append((ch, eng, imgid))
+		imgpath = '/static/images/'+imgid+'.jpg'
+	return render(request,'chatbot/vocs-ch.html', {'chcards': lst2, 'chcardsdict': json.dumps(dict),'imgid':imgid, 'imgpath':imgpath})	
+
+
+-----vocs-ch.html-----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    {% load static %}
+    <link rel="stylesheet" href={% static 'chatbot/cards.css' %}>
+	<script type="text/javascript">
+var wordlist = {{chcardsdict|safe}};
+var num = 0;
+var imgpath = "/static/images/"+wordlist[num][2]+".jpg";
+document.getElementById("vocimg").src=imgpath;
+
+function Next(){
+	if (num >= wordlist.length){
+		num = 0;
+	}
+    num ++;
+	document.getElementById('chword').innerHTML=wordlist[num][0];
+	document.getElementById('engword').innerHTML=wordlist[num][1];
+	imgpath = "/static/images/"+wordlist[num][2]+".jpg";
+	document.getElementById("vocimg").src=imgpath;
+}
+
+function Prev(){
+	if (num <= 0){
+		num = wordlist.length;
+	}
+	num --;
+	document.getElementById('chword').innerHTML=wordlist[num][0];
+	document.getElementById('engword').innerHTML=wordlist[num][1];
+	imgpath = "/static/images/"+wordlist[num][2]+".jpg";
+	document.getElementById("vocimg").src=imgpath;
+}
+</script>
+</head>
+
+<body>
+	<h1>Chinese Words</h1>
+	<p> Here you can learn the words one by one.
+	<br>
+	Click on "Next word" to navigate through the words.
+
+	{% if chcards %}
+	<table id="qcard">
+		<tr>
+			<td>Chinese Word</td>
+			<td>English Word</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="chword">{{chcards.0.chword}}</div>
+			</td>
+			<td>
+				<div id="engword">{{chcards.0.engid.engword}}</div>
+			</td>
+		</tr>
+			{% else %}
+
+		<p>No vocs are available.</p>
+	{% endif %}
+	</table>
+
+	<img id="vocimg" src="/static/images/{{chcards.0.engid.engid}}.jpg" style="float: left" height="200" alt="Mama doesn't allow me to show you...">
+	<button id = "Prev" type="button" style="margin-top:350px;" onclick = "Prev();">Prev word</button>
+	<button id = "new" type="button" style="margin-top:350px;" onclick="Next();">Next word</button>
+	
+<footer>&#169 cool group 2019</footer>
+</body>
+</html>

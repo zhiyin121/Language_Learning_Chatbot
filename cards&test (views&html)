@@ -1,5 +1,4 @@
 
-
 -----views.py---cards-----
 
 def vocsch(request):

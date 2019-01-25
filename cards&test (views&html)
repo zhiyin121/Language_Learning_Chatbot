@@ -1,0 +1,200 @@
+
+
+-----views.py---cards-----
+
+def vocsch(request):
+	import random
+	import json
+	# storing the id
+	lst = []
+	# storing the words
+	lst2 = []
+	# generate random id, put them into lst
+	# If there is an id which exit in the lst, then generate another one
+	for i in range(187):
+		id = random.randint(4001,4187)
+		while id in lst:
+			id = random.randint(4001, 4187)
+		lst.append(id)
+	# get the words according the id in lst, then put them into lst2
+	for id in lst:
+		chcards = Chvoc.objects.get(pk=id)
+		lst2.append(chcards)
+	dict = []
+	for obj in lst2:
+		imgid = str(obj.engid.engid)
+		ch = str(obj.chword)
+		eng = str(obj.engid.engword)
+		dict.append((ch, eng, imgid))
+		imgpath = '/static/images/'+imgid+'.jpg'
+	# json.dumps is a function for transport data from django to js in html (also 'safe' in html file)
+	return render(request, 'chatbot/vocs-ch.html', {'chcards': lst2, 'chcardsdict': json.dumps(dict), 'imgid': imgid, 'imgpath': imgpath})
+	
+
+-----views.py---test-----
+
+def testch(request):
+	# store 11 id
+	lst = []
+	# store 11 words
+	lst2 = []
+	# generate random id, put them into lst.
+	# if there is an id which exit in the lst, then generate another one
+	# in fact, we can use "random.sample()" to achieve it
+	for i in range(11):
+		id = random.randint(4001, 4187)
+		while id in lst:
+			id = random.randint(4001, 4187)
+		lst.append(id)
+	# get the words according the id in lst, then put them into lst2
+	for id in lst:
+		chcards = Chvoc.objects.get(pk=id)
+		lst2.append(chcards)
+	dict = []
+	for obj in lst2:
+		ans = random.randint(0, 1)
+		ch = str(obj.chword)
+		eng_1 = str(obj.engid.engword)
+	# randomly get 2nd English's id
+	# if this id is the same as eng_1's, then generate another one
+	# if not, generate the 2nd English word
+		randid = random.randint(1, 187) + 4000
+		while randid in lst:
+			randid = random.randint(1, 187) + 4000
+		eng_2 = str(Chvoc.objects.get(pk=randid).engid.engword)
+	# random position
+		if ans == 0:
+			dict.append((ans, ch, eng_1, eng_2))
+		else:
+			dict.append((ans, ch, eng_2, eng_1))
+	# json.dumps is a function for transport data from django to js in html (also 'safe' in html file)
+	return render(request, 'chatbot/test-ch.html', {'dict': json.dumps(dict), 'first': dict[0]})
+	
+
+-----vocs-ch.html-----
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    {% load static %}
+    <link rel="stylesheet" href={% static 'chatbot/cards.css' %}>
+	<script type="text/javascript">
+var wordlist = {{chcardsdict|safe}};
+var num = 0;
+var imgpath;
+
+function Next(){
+	if (num >= wordlist.length){
+		num = 0;
+	}
+    num ++;
+	document.getElementById('chword').innerHTML=wordlist[num][0];
+	document.getElementById('engword').innerHTML=wordlist[num][1];
+	imgpath = "/static/images/"+wordlist[num][2]+".jpg";
+	document.getElementById("vocimg").src=imgpath;
+}
+
+function Prev(){
+	if (num <= 0){
+		num = wordlist.length;
+	}
+	num --;
+	document.getElementById('chword').innerHTML=wordlist[num][0];
+	document.getElementById('engword').innerHTML=wordlist[num][1];
+	imgpath = "/static/images/"+wordlist[num][2]+".jpg";
+	document.getElementById("vocimg").src=imgpath;
+}
+</script>
+</head>
+
+<body>
+	<h1>Chinese Words</h1>
+	<p> Here you can learn the words one by one.
+	<br>
+	Click on "Next word" to navigate through the words.
+
+	{% if chcards %}
+	<table id="qcard">
+		<tr>
+			<td>Chinese Word</td>
+			<td>English Word</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="chword">{{chcards.0.chword}}</div>
+			</td>
+			<td>
+				<div id="engword">{{chcards.0.engid.engword}}</div>
+			</td>
+		</tr>
+			{% else %}
+
+		<p>No vocs are available.</p>
+	{% endif %}
+	</table>
+
+	<img id="vocimg" src="/static/images/{{chcards.0.engid.engid}}.jpg" style="float: left" height="200" alt="Mama doesn't allow me to show you...">
+	<button id = "Prev" type="button" style="margin-top:350px;" onclick = "Prev();">Prev word</button>
+	<button id = "new" type="button" style="margin-top:350px;" onclick="Next();">Next word</button>
+	
+<footer>&#169 cool group 2019</footer>
+</body>
+</html>
+
+
+-----test-ch.html-----
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+		<!--load css script-->
+		{% load static %}
+		<link rel="stylesheet" href={% static 'chatbot/test.css' %}>
+</head>
+<body>
+<!--load picture from /chatbot/static/ folder-->
+	{% load static %}
+	<img src="{% static 'images/robot_small.png' %}" style="margin-left:430px;margin-top:100px;" width="350" height="180" alt="Chatbot's face">
+
+<script type="text/javascript">
+var wordlist = {{dict|safe}};
+var count = 0;
+var score = 0;
+
+function btn(x){
+	if (x == wordlist[count][0]){
+	    score ++;
+    }
+    count ++;
+	document.getElementById('chword').innerHTML=wordlist[count][1];
+	document.getElementById('firstBtn').innerHTML=wordlist[count][2];
+	document.getElementById('secondBtn').innerHTML=wordlist[count][3];
+	if (count >= wordlist.length - 1){
+		showScore();
+	}
+}
+
+function showScore() {
+    document.getElementById('engword').removeChild(document.getElementById('firstBtn'));
+    document.getElementById('engword').removeChild(document.getElementById('secondBtn'));
+    var result = 'Your score is ' + Number(score).toString() + '/' + Number(count).toString();
+    document.getElementById('chword').innerHTML=result;
+}
+</script>
+</head>
+
+<body>
+    <h1>Chinese Vocabulary Test</h1>
+	<p> Do you think you've studied hard enough? Are you ready for a test?</br></p >
+    <div id="chword">{{first.1}}</div>
+    <div id="engword">
+        <button id="firstBtn" type="button" onclick = "btn(0)">{{first.2}}</button>
+        <button id="secondBtn" type="button" onclick = "btn(1)">{{first.3}}</button>
+    </div>
+    <footer>&#169 cool group 2019</footer>
+</body>
+</html>
